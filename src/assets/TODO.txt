@@ -1,0 +1,25 @@
+----------------------------------------------GLOBAL
+prodotti file json
+navbar  ricerca logout=>login utente icona
+rotte diverse e protette
+#primeng per catalogo
+#FORM REACTIVE
+-----------------------------------------------LOGIN
+inserisco username e password
+token in chiaro poi in cifrato
+------------------------------------------------se ADMIN
+pagina con scelta se continuare come utente o admin
+--------------------------------SE ADMIN
+pagina con prodotti esistenti e tasti: aggiungi, elimina, modifica
+TASTO aggiungi
+prezzo descrizione immagine nome
+SE utente
+visualizzo catalogo
+
+
+
+
+/*
+gestione del carrello e tasti: aggiungi, elimina, modifica
+metodi di pagamento e indirizzi
+*/
