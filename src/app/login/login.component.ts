@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { LoginService } from '../services/login.service';
+import { Auth } from '../model/auth';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,9 @@ import { Observable } from 'rxjs';
 
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {  }
+  constructor(private fb: FormBuilder, private loginService: LoginService) {  }
 
-  aa: any;
+  auth!: Auth;
 
   ngOnInit(): void {
   }
@@ -25,24 +26,18 @@ export class LoginComponent implements OnInit {
 
   reactForm() {
     console.log(this.myForm.value);
-    console.log(this.myForm.value.username);
 
-    this.getToken().subscribe(data => {
-      this.aa = data;
-      console.log(this.aa?.token);
-
-      if (this.aa?.token == "") {
-        console.log('failed');
-      }
-      else {
-        console.log('ok');
-      }
+    this.loginService.getLoginFailed().subscribe(data => {
+      this.auth = data;
+      if (this.auth.token == "" || this.auth.type == "") {
+         console.log('failed');
+       }
+       else if(this.auth.type == "admin"){
+         console.log('admin');
+       }else if(this.auth.type == "user"){
+         console.log('user');
+       }
     });
-    
-  }
-
-  getToken():Observable<String> {
-    return this.http.get<String>("/assets/login.json");
   }
 
 }

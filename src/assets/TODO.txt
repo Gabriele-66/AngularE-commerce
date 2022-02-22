@@ -1,12 +1,15 @@
 ----------------------------------------------GLOBAL
 prodotti file json
 navbar  ricerca logout=>login utente icona
-rotte diverse e protette
+rotte diverse e protette guard rotta admin ruolo admin
 #primeng per catalogo
 #FORM REACTIVE
 -----------------------------------------------LOGIN
 inserisco username e password
 token in chiaro poi in cifrato
+la response token piu aray di ruoli
+salavre arrray di ruoli e confrontarli con la gurdia
+cokie  local storage per url 
 ------------------------------------------------se ADMIN
 pagina con scelta se continuare come utente o admin
 --------------------------------SE ADMIN
