@@ -1,20 +1,12 @@
-
 <nav>
   <ul>
-    <li><a routerLink="/Login" routerLinkActive="active">Login</a></li>
-    <li><a routerLink="/Disambiguation" routerLinkActive="active">Disambiguation</a></li>
-    <li><a routerLink="/Admin" routerLinkActive="active">Admin</a></li>
+    <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+    <li><a routerLink="/disambiguation" routerLinkActive="active">Disambiguation</a></li>
+    <li><a routerLink="/admin" routerLinkActive="active">Admin</a></li>
   </ul>
 </nav>
-
-{{currentRoute}}
-
-<!-- <div *ngIf="((currentRoute!='/') || (currentRoute!='/Login'))"> -->
-
-<div *ngIf="currentRoute!='/'">
-  <div *ngIf="currentRoute!='/Login'">
-      <app-nav-bar></app-nav-bar>
-  </div>
+<div *ngIf="currentRoute!=='/' && currentRoute!=='/login' ">
+  <app-nav-bar></app-nav-bar>
 </div>
 
 <router-outlet></router-outlet>
