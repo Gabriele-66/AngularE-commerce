@@ -1,13 +1,18 @@
 <h2>{{'reactive form'|uppercase}}</h2>
 
 <form [formGroup]="myForm">
+
+  <!-- NAME -->
   <div>
-    <label for="username">Username</label>
+    <label for="username">Username: </label>
     <input type="text" id="username" formControlName="username">
+    <span [hidden]="myForm.controls.username.valid || myForm.controls.username.pristine">CAMPO OBBLOGATORIO</span>
   </div>
+
   <div>
-    <label for="password">Password</label>
+    <label for="password">Password: </label>
     <input type="password" id="password" formControlName="password">
+    <span [hidden]="myForm.controls.password.valid || myForm.controls.password.pristine">CAMPO OBBLOGATORIO</span>
   </div>
-  <button type="button"  (click)="reactForm()">Invia</button>
+  <button type="button" [disabled]="myForm.invalid" (click)="reactForm()">Invia</button>
 </form>
