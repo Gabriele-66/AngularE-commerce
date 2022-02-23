@@ -37,6 +37,12 @@ export class LoginComponent implements OnInit {
        }else if(this.auth.type == "user"){
          console.log('user');
        }
+    },
+      _=> {
+        console.log('aaaa');
+      },
+      ()=> {
+        console.log('bb');
     });
   }
 
