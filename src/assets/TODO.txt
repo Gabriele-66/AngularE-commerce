@@ -32,5 +32,12 @@ metodi di pagamento e indirizzi
 
 
 
-----------------------------------COSE DA CHIEDERE
-OR IN NGIF
+---------------------------/ DA FARE /---------------------------
+Domenico:
+Gabriele:
+
+
+choice
+json dei prodotti
+servizio crud sui prodotto
+visualizzazione lista ngprime
