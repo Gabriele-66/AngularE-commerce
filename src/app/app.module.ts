@@ -11,6 +11,7 @@ import { ListComponent } from './list/list.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { UserPageComponent } from './user-page/user-page.component';
+import { SerchComponent } from './serch/serch.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserPageComponent } from './user-page/user-page.component';
     ListComponent,
     NavBarComponent,
     AdminPageComponent,
-    UserPageComponent
+    UserPageComponent,
+    SerchComponent
   ],
   imports: [
     BrowserModule,
