@@ -1,5 +1,12 @@
 export interface Product{
-  nome: string;
-  prezzo: number;
-  descrizione: string;
+    id?:string;
+    code?:string;
+    name?:string;
+    description?:string;
+    price?:number;
+    quantity?:number;
+    inventoryStatus?:string;
+    category?:string;
+    image?:string;
+    rating?:number;
 }

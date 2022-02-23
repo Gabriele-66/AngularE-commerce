@@ -41,3 +41,12 @@ choice
 json dei prodotti
 servizio crud sui prodotto
 visualizzazione lista ngprime
+
+
+
+
+
+primengconfig
+this.primengConfig.ripple = true;
+modificare getproducts
+in listservice
