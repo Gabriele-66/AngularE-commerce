@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   reactForm() {
     //console.log(this.myForm.value);
-    this.loginService.getLoginUser()
+    this.loginService.getLoginAdmin()
       .subscribe(data => {
           this.auth = data;
           if (this.auth.token == "" || this.auth.type == "") {
