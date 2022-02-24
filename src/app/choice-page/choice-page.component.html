@@ -1,1 +1,8 @@
-<p>choice-page works!</p>
+<form [formGroup]="userForm">
+  <input type="radio" value="admin" formControlName="userType"><span>Admin</span>
+  <input type="radio" value="user" formControlName="userType"><span>User</span>
+  <div>
+    <button type="button" [disabled]="userForm.invalid" (click)="next()">Conferma</button>
+    <button type="button" (click)="goBack()">Annulla</button>
+  </div>
+</form>
