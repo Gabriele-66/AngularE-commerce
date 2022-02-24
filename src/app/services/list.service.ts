@@ -2,11 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Product } from '../model/product';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ListService {
+
+  private URL = 'assets/products.json';
+
   status: string[] = ['OUTOFSTOCK', 'INSTOCK', 'LOWSTOCK'];
 
   productNames: string[] = [
@@ -46,12 +50,20 @@ export class ListService {
 
   getProducts() {
     return this.http
-      .get<any>('assets/products.json')
+      .get<any>(this.URL)
       .toPromise()
       .then((res) => <Product[]>res.data)
       .then((data) => {
         return data;
       });
+  }
+
+  searchProducts(term: string): Observable<Product[]> {
+    if (!term.trim()) {
+      // if not search term, return empty product array.
+      return of([]);
+    }
+    return this.http.get<Product[]>(`${this.URL}/?name=${term}`);
   }
 
   generatePrduct(): Product {
@@ -90,8 +102,8 @@ export class ListService {
     return Math.floor(Math.random() * Math.floor(75) + 1);
   }
 
-  generateStatus() {//generarer lo status dalla quantita
+  generateStatus() {
+    //generarer lo status dalla quantita
     return this.status[Math.floor(Math.random() * Math.floor(3))];
   }
-
 }

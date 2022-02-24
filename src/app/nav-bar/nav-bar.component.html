@@ -1,7 +1,21 @@
-<nav>
-  <ul>
-    <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
-    <li><a routerLink="/disambiguation" routerLinkActive="active">Disambiguation</a></li>
-    <li><a routerLink="/admin" routerLinkActive="active">Admin</a></li>
-  </ul>
-</nav>
+<p-menubar [model]="items">
+  <ng-template pTemplate="end">
+    <div id="search-component">
+      <input
+        #searchBox
+        type="text"
+        pInputText
+        placeholder="Search"
+        (input)="search(searchBox.value)"
+      />
+
+      <ul class="search-result">
+        <li *ngFor="let hero of products$ | async">
+          <a>
+            {{ hero.name }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </ng-template>
+</p-menubar>

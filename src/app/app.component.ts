@@ -10,14 +10,14 @@ import { filter } from 'rxjs';
 export class AppComponent {
   title = 'GitAngularECommerce';
 
-  currentRoute!: string;
+  public currentRoute!: string;
 
   constructor(public router: Router){
 
      router.events.pipe(
        filter((e: Event): e is RouterEvent => e instanceof RouterEvent)
     ).subscribe((e: RouterEvent) => {
-      this.currentRoute=e.url;
+      this.currentRoute = e.url;
     });
     }
 }

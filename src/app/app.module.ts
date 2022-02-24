@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -12,7 +11,6 @@ import {ListComponent} from './list/list.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {AdminPageComponent} from './admin-page/admin-page.component';
 import {UserPageComponent} from './user-page/user-page.component';
-import {SearchComponent} from './search/search.component';
 
 import {DataViewModule} from 'primeng/dataview';
 import {ButtonModule} from 'primeng/button';
@@ -23,7 +21,8 @@ import {InputTextModule} from 'primeng/inputtext';
 import {RatingModule} from 'primeng/rating';
 import {RippleModule} from 'primeng/ripple';
 import {TableModule} from 'primeng/table';
-import {CardModule} from 'primeng/card';
+import { CardModule } from 'primeng/card';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
   declarations: [
@@ -33,8 +32,7 @@ import {CardModule} from 'primeng/card';
     ListComponent,
     NavBarComponent,
     AdminPageComponent,
-    UserPageComponent,
-    SearchComponent
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +48,8 @@ import {CardModule} from 'primeng/card';
     RatingModule,
     RippleModule,
     TableModule,
-    CardModule
+    CardModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

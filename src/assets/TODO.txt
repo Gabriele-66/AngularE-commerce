@@ -1,52 +1,10 @@
-componene scelta admin user
-coponente user
-componente catalogo
-componente navbar
-----------------------------------------------GLOBAL
-prodotti file json
-navbar  ricerca logout=>login utente icona
 rotte diverse e protette guard rotta admin ruolo admin
-#primeng per catalogo
-#FORM REACTIVE
------------------------------------------------LOGIN
-inserisco username e password
 token in chiaro poi in cifrato
-la response token piu aray di ruoli
-salavre arrray di ruoli e confrontarli con la gurdia
 cokie  local storage per url
-------------------------------------------------se ADMIN
-pagina con scelta se continuare come utente o admin
---------------------------------SE ADMIN
+guardia
+
 pagina con prodotti esistenti e tasti: aggiungi, elimina, modifica
-TASTO aggiungi
-prezzo descrizione immagine nome
-SE utente
-visualizzo catalogo
-
-
-
-/*
-gestione del carrello e tasti: aggiungi, elimina, modifica
-metodi di pagamento e indirizzi
-*/
-
-
-
----------------------------/ DA FARE /---------------------------
-Domenico:
-Gabriele:
-
-
-choice
-json dei prodotti
-servizio crud sui prodotto
-visualizzazione lista ngprime
-
-
-
-
-
-primengconfig
-this.primengConfig.ripple = true;
 modificare getproducts
-in listservice
+
+navbar  ricerca logout=>login utente icona
+
