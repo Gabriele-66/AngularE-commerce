@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { ListService } from '../services/list.service';
-import { Product } from '../model/product';
-import { SelectItem } from 'primeng/api';
-import { PrimeNGConfig } from 'primeng/api';
+import {Component, OnInit} from '@angular/core';
+import {ListService} from '../services/list.service';
+import {Product} from '../model/product';
+import {SelectItem} from 'primeng/api';
+import {PrimeNGConfig} from 'primeng/api';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+  styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
   products: Product[] = [];
@@ -18,7 +18,8 @@ export class ListComponent implements OnInit {
   constructor(
     private listService: ListService,
     private primengConfig: PrimeNGConfig
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.listService.getProducts().then((data) => (this.products = data));
