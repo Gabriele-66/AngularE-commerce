@@ -61,9 +61,7 @@ export class ListService {
       description: 'Product Description',
       price: this.generatePrice(),
       quantity: this.generateQuantity(),
-      category: 'Product Category',
       inventoryStatus: this.generateStatus(),
-      rating: this.generateRating(),
     };
     return product;
   }
@@ -92,11 +90,8 @@ export class ListService {
     return Math.floor(Math.random() * Math.floor(75) + 1);
   }
 
-  generateStatus() {
+  generateStatus() {//generarer lo status dalla quantita
     return this.status[Math.floor(Math.random() * Math.floor(3))];
   }
 
-  generateRating() {
-    return Math.floor(Math.random() * Math.floor(5) + 1);
-  }
 }
