@@ -1,21 +1,23 @@
-<div *ngIf="currentRoute=='/user'">
+<div *ngIf="currentRoute == '/user'">
   <p-dataView [value]="products">
     <ng-template let-product pTemplate="listItem">
       <div class="row">
-        <div class=" md:col-4 col-12">
+        <div class="md:col-4 col-12">
           <div class="product-grid-item card">
             <div class="product-grid-item-top">
               <div>
                 <i class="pi pi-tag product-name-icon"></i>
-                <span class="product-name">{{product.name}}</span>
+                <span class="product-name">{{ product.name }}</span>
               </div>
             </div>
             <div class="product-grid-item-content">
-              <div class="product-description">{{product.description}}</div>
+              <div class="product-description">{{ product.description }}</div>
             </div>
             <div class="product-grid-item-bottom">
-              <span class="product-price">${{product.price}}</span>
-              <span class="product-quantity">Availability: {{product.quantity}}</span>
+              <span class="product-price">${{ product.price }}</span>
+              <span class="product-quantity"
+                >Availability: {{ product.quantity }}</span
+              >
             </div>
           </div>
         </div>
@@ -24,39 +26,60 @@
   </p-dataView>
 </div>
 
-<div *ngIf="currentRoute=='/admin'">
+<div *ngIf="currentRoute == '/admin'">
   <button (click)="addProd()">ADD</button>
-    <p-dataView [value]="products">
+  <p-dataView [value]="products">
     <ng-template let-product pTemplate="listItem">
       <div class="row">
-        <div class=" md:col-4 col-12">
+        <div class="md:col-4 col-12">
           <div class="product-grid-item card">
-
-
             <form #myForm="ngForm">
-            <div class="product-grid-item-top">
-              <div>
-                <i class="pi pi-tag product-name-icon"></i>
-                <!-- <span class="product-name">{{product.name}}</span> -->
-                <input [disabled]="product.editable=='edit'" type="text" class="product-name" [(ngModel)]="product.name" name="name" required >
+              <div class="product-grid-item-top">
+                <div>
+                  <i class="pi pi-tag product-name-icon"></i>
+                  <input
+                    [disabled]="product.editable == 'edit'"
+                    type="text"
+                    class="product-name"
+                    [(ngModel)]="product.name"
+                    name="name"
+                    required
+                  />
+                </div>
               </div>
-            </div>
-            <div class="product-grid-item-content">
-              <!-- <div class="product-description">{{product.description}}</div> -->
-              <input [disabled]="product.editable=='edit'" type="text" class="product-description" [(ngModel)]="product.description"  name="description" required>
-            </div>
-            <div class="product-grid-item-bottom">
-              <!-- <span class="product-price">${{product.price}}</span> -->
-              <input [disabled]="product.editable=='edit'" type="text" class="product-price" [(ngModel)]="product.price"  name="price" required>
-              <!-- <span class="product-quantity">Availability: {{product.quantity}}</span> -->
-              <input [disabled]="product.editable=='edit'"type="text" class="product-quantity" [(ngModel)]="product.quantity"  name="quantity"required>
-            </div>
-            <button type="button" (click)="edit(product.id)">{{product.editable}}</button>
-            <button type="button" (click)="delete(product.id)">DELETE</button>
-
+              <div class="product-grid-item-content">
+                <input
+                  [disabled]="product.editable == 'edit'"
+                  type="text"
+                  class="product-description"
+                  [(ngModel)]="product.description"
+                  name="description"
+                  required
+                />
+              </div>
+              <div class="product-grid-item-bottom">
+                <input
+                  [disabled]="product.editable == 'edit'"
+                  type="text"
+                  class="product-price"
+                  [(ngModel)]="product.price"
+                  name="price"
+                  required
+                />
+                <input
+                  [disabled]="product.editable == 'edit'"
+                  type="text"
+                  class="product-quantity"
+                  [(ngModel)]="product.quantity"
+                  name="quantity"
+                  required
+                />
+              </div>
+              <button type="button" (click)="edit(product.id)">
+                {{ product.editable }}
+              </button>
+              <button type="button" (click)="delete(product.id)">Remove</button>
             </form>
-
-
           </div>
         </div>
       </div>

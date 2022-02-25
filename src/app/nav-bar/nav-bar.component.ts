@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { MenuItem } from 'primeng/api';
 
-import { Router } from '@angular/router';
-import { AppComponent } from '../app.component';
 import { ListService } from '../services/list.service';
 import { Product } from '../model/product';
 
@@ -12,11 +11,11 @@ import { Product } from '../model/product';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css'],
 })
+
 export class NavBarComponent implements OnInit {
   constructor(
-    public router: Router,
-    public appComponent: AppComponent,
-    public liService: ListService
+    private router: Router,
+    private listService: ListService
   ) {}
 
   products: Product[] = [];
@@ -25,7 +24,8 @@ export class NavBarComponent implements OnInit {
   items!: MenuItem[];
 
   ngOnInit() {
-    this.liService.getProducts().then((data) => (this.products = data));
+    this.listService.getProducts().then((data) => (this.products = data));//da modificare questo finto richiamo
+
     this.items = [
       {
         label: 'Users',
@@ -44,9 +44,7 @@ export class NavBarComponent implements OnInit {
       },
     ];
 
-    //console.log(this.appComponent.currentRoute);
-
-    if (this.appComponent.currentRoute == '/admin') {
+    if (String(this.listService.whereAmI()) == '/admin') {
       this.items.splice(1, 0, {
         label: 'Add',
         icon: 'pi pi-fw pi-calendar-plus',
@@ -58,7 +56,7 @@ export class NavBarComponent implements OnInit {
 
   search(textBar: string) {
     console.log(textBar.length);
-    this.liService.getProducts().then((data) => (this.products = data));
+    this.listService.getProducts().then((data) => (this.products = data));  // da fixare con il finto richiamo di sopra
 
     this.productsName = [];
     this.resultSearch = [];
@@ -67,7 +65,6 @@ export class NavBarComponent implements OnInit {
       this.products.forEach((product) =>
         this.productsName.push(product.name?.toLowerCase())
       );
-      //console.log(this.productsName);
 
       for (let i = 0; i < this.productsName.length; i++) {
         if (this.productsName[i].includes(textBar)) {

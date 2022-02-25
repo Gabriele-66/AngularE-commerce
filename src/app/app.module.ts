@@ -25,6 +25,7 @@ import {RippleModule} from 'primeng/ripple';
 import {TableModule} from 'primeng/table';
 import { CardModule } from 'primeng/card';
 import { MenubarModule } from 'primeng/menubar';
+import { ListService } from './services/list.service';
 
 @NgModule({
   declarations: [

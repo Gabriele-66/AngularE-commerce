@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Event, RouterEvent, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { RouterEvent } from '@angular/router';
+import { ListService } from './services/list.service';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +12,18 @@ export class AppComponent {
 
   public currentRoute!: string;
 
-  constructor(public router: Router){
+  constructor(private listService: ListService) {
 
-     router.events.pipe(
-       filter((e: Event): e is RouterEvent => e instanceof RouterEvent)
-    ).subscribe((e: RouterEvent) => {
-      this.currentRoute = e.url;
-    });
-    }
+    this.currentRoute = String(this.listService.whereAmI());
+    console.log(this.listService.whereAmI().subscribe((e: RouterEvent) => this.currentRoute = e.url));
+  }
+
 }
+/*
+
+
+      .subscribe((e: RouterEvent) => {
+      this.currentRoute = e.url;
+      console.log(this.currentRoute)
+    });
+*/

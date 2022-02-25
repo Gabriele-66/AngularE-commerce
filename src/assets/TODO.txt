@@ -3,10 +3,9 @@ token in chiaro poi in cifrato
 cokie  local storage per url
 guardia
 
-pagina con prodotti esistenti e tasti: aggiungi, elimina, modifica
-modificare getproducts
 
-
-bottoncino edit
-rimpicciolire input
-salva
+fixato barra di rierca quadratino bianco
+ripulito generazione casuale listservice
+creato metodo dovee sono io per rotta
+eliminato richiamo dela rotta da apppcomponent per la navbar e usato dovesonoio
+utilizzo del metodo whreami per la rott in list component
