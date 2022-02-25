@@ -1,7 +1,8 @@
 <p-menubar [model]="items">
   <ng-template pTemplate="end">
-    <div id="search-component">
+    <div id="search-component" class="dropdown">
       <input
+        id="myinput"
         #searchBox
         type="text"
         pInputText
@@ -9,19 +10,13 @@
         (input)="search(searchBox.value)"
       />
 
-
-      <ul class="search-result dropdown">
-        <li *ngFor="let hero of resultSearch" class="dropdown-content">
+      <ul class="search-result dropdown-content">
+        <li *ngFor="let hero of resultSearch">
           <a>
             {{ hero }}
           </a>
-      </li>
-    </ul>
-
-
-    <p-dropdown [options]="products" optionLabel="id" >
-
-    </p-dropdown>
+        </li>
+      </ul>
 
     </div>
   </ng-template>

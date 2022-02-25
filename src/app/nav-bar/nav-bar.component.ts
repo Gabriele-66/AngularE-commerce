@@ -91,8 +91,6 @@ export class NavBarComponent implements OnInit {
           this.resultSearch.push(this.productsName[i]);
         }
       }
-
-      //console.log(this.resultSearch);
     }
   }
 }
