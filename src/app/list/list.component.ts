@@ -72,5 +72,10 @@ export class ListComponent implements OnInit {
 
     console.log(this.products);
 
+     this.listService.getProducts().then((data) => {
+       this.products = data;
+       this.products.forEach((prod) => (prod.editable = 'edit'));
+       this.products.splice(0,0, this.newProd);
+     });
   }
 }
