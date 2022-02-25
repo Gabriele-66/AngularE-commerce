@@ -5,6 +5,3 @@ guardia
 
 pagina con prodotti esistenti e tasti: aggiungi, elimina, modifica
 modificare getproducts
-
-navbar  ricerca logout=>login utente icona
-

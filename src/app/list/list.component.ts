@@ -14,12 +14,10 @@ export class ListComponent implements OnInit {
   constructor(
     private listService: ListService,
     private primengConfig: PrimeNGConfig
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.listService.getProducts().then((data) => (this.products = data));
     this.primengConfig.ripple = true;
   }
-
 }
