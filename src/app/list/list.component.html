@@ -25,6 +25,7 @@
 </div>
 
 <div *ngIf="currentRoute=='/admin'">
+  <button (click)="addProd()">ADD</button>
     <p-dataView [value]="products">
     <ng-template let-product pTemplate="listItem">
       <div class="row">
@@ -37,20 +38,22 @@
               <div>
                 <i class="pi pi-tag product-name-icon"></i>
                 <!-- <span class="product-name">{{product.name}}</span> -->
-                <input type="text" class="product-name" [(ngModel)]="product.name" name="name" required >
+                <input [disabled]="product.editable=='edit'" type="text" class="product-name" [(ngModel)]="product.name" name="name" required >
               </div>
             </div>
             <div class="product-grid-item-content">
               <!-- <div class="product-description">{{product.description}}</div> -->
-              <input type="text" class="product-description" [(ngModel)]="product.description"  name="description" required>
+              <input [disabled]="product.editable=='edit'" type="text" class="product-description" [(ngModel)]="product.description"  name="description" required>
             </div>
             <div class="product-grid-item-bottom">
               <!-- <span class="product-price">${{product.price}}</span> -->
-              <input type="text" class="product-price" [(ngModel)]="product.price"  name="price" required>
+              <input [disabled]="product.editable=='edit'" type="text" class="product-price" [(ngModel)]="product.price"  name="price" required>
               <!-- <span class="product-quantity">Availability: {{product.quantity}}</span> -->
-              <input type="text" class="product-quantity" [(ngModel)]="product.quantity"  name="quantity"required>
+              <input [disabled]="product.editable=='edit'"type="text" class="product-quantity" [(ngModel)]="product.quantity"  name="quantity"required>
             </div>
-            <button type="button" [disabled]="!myForm.valid" (click)="edit()">{{operation}}</button>
+            <button type="button" (click)="edit(product.id)">{{product.editable}}</button>
+            <button type="button" (click)="delete(product.id)">DELETE</button>
+
             </form>
 
 

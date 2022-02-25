@@ -48,30 +48,13 @@ export class NavBarComponent implements OnInit {
 
     if (this.appComponent.currentRoute == '/admin') {
       this.items.splice(1, 0, {
-        label: 'Events',
-        icon: 'pi pi-fw pi-calendar',
-        items: [
-          {
-            label: 'Save',
-            icon: 'pi pi-fw pi-calendar-minus',
-          },
-          {
-            label: 'Add',
-            icon: 'pi pi-fw pi-calendar-plus',
-          },
-          {
-            label: 'Edit',
-            icon: 'pi pi-fw pi-pencil',
-          },
-
-          {
-            label: 'Delete',
-            icon: 'pi pi-fw pi-calendar-times',
-          },
-        ],
+        label: 'Add',
+        icon: 'pi pi-fw pi-calendar-plus',
       });
     }
   }
+
+
 
   search(textBar: string) {
     console.log(textBar.length);
