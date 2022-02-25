@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Product } from '../model/product';
-import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -56,14 +55,6 @@ export class ListService {
       .then((data) => {
         return data;
       });
-  }
-
-  searchProducts(term: string): Observable<Product[]> {
-    if (!term.trim()) {
-      // if not search term, return empty product array.
-      return of([]);
-    }
-    return this.http.get<Product[]>(`${this.URL}/?name=${term}`);
   }
 
   generatePrduct(): Product {

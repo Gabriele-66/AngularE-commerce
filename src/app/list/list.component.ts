@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ListService} from '../services/list.service';
 import {Product} from '../model/product';
-import {SelectItem} from 'primeng/api';
 import {PrimeNGConfig} from 'primeng/api';
 
 @Component({
@@ -11,9 +10,6 @@ import {PrimeNGConfig} from 'primeng/api';
 })
 export class ListComponent implements OnInit {
   products: Product[] = [];
-  sortOptions: SelectItem[] = [];
-  sortOrder!: number;
-  sortField!: string;
 
   constructor(
     private listService: ListService,

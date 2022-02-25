@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 import { MenuItem } from 'primeng/api';
 
@@ -8,7 +6,6 @@ import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { ListService } from '../services/list.service';
 import { Product } from '../model/product';
-
 
 @Component({
   selector: 'app-nav-bar',
@@ -22,11 +19,13 @@ export class NavBarComponent implements OnInit {
     public liService: ListService
   ) {}
 
+  products: Product[] = [];
+  resultSearch: any[] = [];
+  productsName: any[] = [];
   items!: MenuItem[];
-  products$!: Observable<Product[]>;
-  private searchTerms = new Subject<string>();
 
   ngOnInit() {
+    this.liService.getProducts().then((data) => (this.products = data));
     this.items = [
       {
         label: 'Users',
@@ -45,7 +44,7 @@ export class NavBarComponent implements OnInit {
       },
     ];
 
-    console.log(this.appComponent.currentRoute);
+    //console.log(this.appComponent.currentRoute);
 
     if (this.appComponent.currentRoute == '/admin') {
       this.items.splice(1, 0, {
@@ -72,22 +71,28 @@ export class NavBarComponent implements OnInit {
         ],
       });
     }
-
-    this.products$ = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
-      debounceTime(300),
-
-      // ignore new term if same as previous term
-      distinctUntilChanged(),
-
-      // switch to new search observable each time the term changes
-      switchMap((term: string) => this.liService.searchProducts(term))
-    );
   }
 
-  // Push a search term into the observable stream.
-  search(term: string): void {
-    this.searchTerms.next(term);
-  }
+  search(textBar: string) {
+    console.log(textBar.length);
+    this.liService.getProducts().then((data) => (this.products = data));
 
+    this.productsName = [];
+    this.resultSearch = [];
+
+    if (textBar.length) {
+      this.products.forEach((product) =>
+        this.productsName.push(product.name?.toLowerCase())
+      );
+      //console.log(this.productsName);
+
+      for (let i = 0; i < this.productsName.length; i++) {
+        if (this.productsName[i].includes(textBar)) {
+          this.resultSearch.push(this.productsName[i]);
+        }
+      }
+
+      //console.log(this.resultSearch);
+    }
+  }
 }

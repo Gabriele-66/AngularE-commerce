@@ -10,9 +10,9 @@
       />
 
       <ul class="search-result">
-        <li *ngFor="let hero of products$ | async">
+        <li *ngFor="let hero of resultSearch">
           <a>
-            {{ hero.name }}
+            {{ hero }}
           </a>
         </li>
       </ul>
