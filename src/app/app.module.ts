@@ -1,5 +1,6 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from '@angular/common/http';
 
@@ -32,7 +33,7 @@ import { MenubarModule } from 'primeng/menubar';
     ListComponent,
     NavBarComponent,
     AdminPageComponent,
-    UserPageComponent
+    UserPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,10 +50,11 @@ import { MenubarModule } from 'primeng/menubar';
     RippleModule,
     TableModule,
     CardModule,
-    MenubarModule
+    MenubarModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [],
 })
-export class AppModule {
-}
+export class AppModule {}

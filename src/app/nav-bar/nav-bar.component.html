@@ -9,7 +9,7 @@
         (input)="search(searchBox.value)"
       />
 
-      
+
       <ul class="search-result dropdown">
         <li *ngFor="let hero of resultSearch" class="dropdown-content">
           <a>
@@ -18,6 +18,10 @@
       </li>
     </ul>
 
+
+    <p-dropdown [options]="products" optionLabel="id" >
+
+    </p-dropdown>
 
     </div>
   </ng-template>
