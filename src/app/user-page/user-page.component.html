@@ -1,1 +1,27 @@
-<app-list></app-list>
+<app-nav-bar></app-nav-bar>
+
+  <p-dataView [value]="products">
+    <ng-template let-product pTemplate="listItem">
+      <div class="row">
+        <div class="md:col-4 col-12">
+          <div class="product-grid-item card">
+            <div class="product-grid-item-top">
+              <div>
+                <i class="pi pi-tag product-name-icon"></i>
+                <span class="product-name">{{ product.name }}</span>
+              </div>
+            </div>
+            <div class="product-grid-item-content">
+              <div class="product-description">{{ product.description }}</div>
+            </div>
+            <div class="product-grid-item-bottom">
+              <span class="product-price">${{ product.price }}</span>
+              <span class="product-quantity"
+                >Availability: {{ product.quantity }}</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-dataView>

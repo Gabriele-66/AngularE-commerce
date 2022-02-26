@@ -6,6 +6,7 @@ guardia
 
 fixato barra di rierca quadratino bianco
 ripulito generazione casuale listservice
-creato metodo dovee sono io per rotta
-eliminato richiamo dela rotta da apppcomponent per la navbar e usato dovesonoio
-utilizzo del metodo whreami per la rott in list component
+ripulito rotta per nav bar e chiamata direttamente negli html interessati
+file list diviso in admin interessato e user interessato
+ripulito app module da import non usati
+eliminato component list

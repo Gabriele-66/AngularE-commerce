@@ -24,7 +24,7 @@ export class ChoicePageComponent implements OnInit {
   }
 
   next() {
-    console.log(this.userForm.controls.userType.value);
+    //console.log(this.userForm.controls.userType.value);
     if (this.userForm.controls.userType.value === 'admin')
       this.router.navigate(['admin']);
     else if (this.userForm.controls.userType.value === 'user')

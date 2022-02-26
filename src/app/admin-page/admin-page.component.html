@@ -1,1 +1,60 @@
-<app-list></app-list>
+<app-nav-bar></app-nav-bar>
+
+<button (click)="addProd()">ADD</button>
+  <p-dataView [value]="products">
+    <ng-template let-product pTemplate="listItem">
+      <div class="row">
+        <div class="md:col-4 col-12">
+          <div class="product-grid-item card">
+            <form #myForm="ngForm">
+              <div class="product-grid-item-top">
+                <div>
+                  <i class="pi pi-tag product-name-icon"></i>
+                  <input
+                    [disabled]="product.editable == 'edit'"
+                    type="text"
+                    class="product-name"
+                    [(ngModel)]="product.name"
+                    name="name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="product-grid-item-content">
+                <input
+                  [disabled]="product.editable == 'edit'"
+                  type="text"
+                  class="product-description"
+                  [(ngModel)]="product.description"
+                  name="description"
+                  required
+                />
+              </div>
+              <div class="product-grid-item-bottom">
+                <input
+                  [disabled]="product.editable == 'edit'"
+                  type="text"
+                  class="product-price"
+                  [(ngModel)]="product.price"
+                  name="price"
+                  required
+                />
+                <input
+                  [disabled]="product.editable == 'edit'"
+                  type="text"
+                  class="product-quantity"
+                  [(ngModel)]="product.quantity"
+                  name="quantity"
+                  required
+                />
+              </div>
+              <button type="button" (click)="edit(product.id)">
+                {{ product.editable }}
+              </button>
+              <button type="button" (click)="delete(product.id)">Remove</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-dataView>
