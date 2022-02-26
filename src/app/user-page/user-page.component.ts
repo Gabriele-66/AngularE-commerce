@@ -9,15 +9,17 @@ import { ListService } from '../services/list.service';
   styleUrls: ['./user-page.component.css'],
 })
 export class UserPageComponent implements OnInit {
+
   public products: Product[] = [];
 
-  constructor(private listService: ListService) {}
+  constructor(private listService: ListService) {
+   // this.listService.getProducts();
+    this.products = this.listService.getUpdateProducts();
+  }
 
   ngOnInit() {
-    this.listService.getProducts().then((data) => {
-      this.products = data;
-      this.products.forEach((prod) => (prod.editable = 'edit'));
-    });
-   
+    //this.listService.getProducts();
+    this.products = this.listService.getUpdateProducts();
   }
+
 }

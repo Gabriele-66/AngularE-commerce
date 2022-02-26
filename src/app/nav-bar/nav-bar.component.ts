@@ -1,31 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Event, RouterEvent, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 import { MenuItem } from 'primeng/api';
 
 import { ListService } from '../services/list.service';
-import { Product } from '../model/product';
+import { AdminPageComponent } from '../admin-page/admin-page.component';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css'],
 })
-
 export class NavBarComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private listService: ListService
-  ) {}
-
-  products: Product[] = [];
-  resultSearch: any[] = [];
-  productsName: any[] = [];
   items!: MenuItem[];
+  currentRoute!: string;
+  resultSearch?: any[] = [];
+
+  constructor(private router: Router, private listService: ListService, private adminPage:AdminPageComponent) {
+    router.events
+      .pipe(filter((e: Event): e is RouterEvent => e instanceof RouterEvent))
+      .subscribe((e: RouterEvent) => {
+        this.currentRoute = e.url;
+      });
+  }
 
   ngOnInit() {
-    this.listService.getProducts().then((data) => (this.products = data));//da modificare questo finto richiamo
-
     this.items = [
       {
         label: 'Users',
@@ -44,33 +44,16 @@ export class NavBarComponent implements OnInit {
       },
     ];
 
-    if (String(this.listService.whereAmI()) == '/admin') {
+    if (String(this.currentRoute) == '/admin') {
       this.items.splice(1, 0, {
         label: 'Add',
         icon: 'pi pi-fw pi-calendar-plus',
+        command: () => (this.adminPage.products = this.listService.addProd()),
       });
     }
   }
 
-
-
   search(textBar: string) {
-    console.log(textBar.length);
-    this.listService.getProducts().then((data) => (this.products = data));  // da fixare con il finto richiamo di sopra
-
-    this.productsName = [];
-    this.resultSearch = [];
-
-    if (textBar.length) {
-      this.products.forEach((product) =>
-        this.productsName.push(product.name?.toLowerCase())
-      );
-
-      for (let i = 0; i < this.productsName.length; i++) {
-        if (this.productsName[i].includes(textBar)) {
-          this.resultSearch.push(this.productsName[i]);
-        }
-      }
-    }
+    this.resultSearch = this.listService.search(textBar);
   }
 }
