@@ -19,3 +19,27 @@ la chiamata al file viene eseguita solo unavolta cosi che le modifiche crud sian
 MA
 iptetico bindig automatico di tutti le nuove card aggiunte
 aggiornamento array quando viene premuto un tasto su admin
+
+
+prima
+nel servizio
+
+  getProducts() {
+    return this.http
+      .get<any>(this.URL)
+      .toPromise()
+      .then((res) => <Product[]>res.data)
+      .then((data) => {
+        return data;
+      });
+  }
+
+
+list component
+  ngOnInit() {
+    this.listService.getProducts().then((data) => {
+      this.products = data;
+      this.products.forEach((prod) => (prod.editable = 'edit'));
+    });
+    this.primengConfig.ripple = true;
+  }

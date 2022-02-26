@@ -15,11 +15,11 @@ export class AdminPageComponent implements OnInit {
   newProd: Product = {};
 
   constructor(private listService: ListService) {
-    this.products = this.listService.products;
+    this.products = this.listService.getUpdateProducts();
   }
 
   ngOnInit() {
-    this.products = this.listService.products;
+    this.products = this.listService.getUpdateProducts();
   }
 
   edit(id: string) {
