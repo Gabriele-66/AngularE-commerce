@@ -11,20 +11,29 @@ export class AdminPageComponent implements OnInit {
   public products: Product[] = [];
   public currentRoute!: string;
 
-  constructor(private listService: ListService) {
-    this.products = this.listService.getUpdateProducts();
-  }
+  constructor(private listService: ListService) {}
 
   ngOnInit() {
-    // this.listService.getProducts();
-    this.products = this.listService.getUpdateProducts();
+    this.listService.getProducts().subscribe((prod) => (
+        this.products = prod
+      ));
   }
 
-  edit(id: string) {
-    this.products = this.listService.edit(id);
+  edit(prod: Product) {
+    this.listService.edit1(prod);
+    this.listService.getProducts().subscribe((prod) => (this.products = prod));
   }
 
-  delete(id: string) {
-    this.products = this.listService.delete(id);
+  delete(prod: Product) {
+    this.listService.delete(prod.id).subscribe((data) => (
+      this.listService.getProducts().subscribe((prod) => (
+        this.products = prod
+      ), err => {
+        alert('qeffqqe');
+      })
+    ),er => {
+      alert('wwefwfw');
+    });
+
   }
 }

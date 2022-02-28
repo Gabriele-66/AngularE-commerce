@@ -13,13 +13,10 @@ export class UserPageComponent implements OnInit {
   public products: Product[] = [];
 
   constructor(private listService: ListService) {
-   // this.listService.getProducts();
-    this.products = this.listService.getUpdateProducts();
   }
 
   ngOnInit() {
-    //this.listService.getProducts();
-    this.products = this.listService.getUpdateProducts();
+    this.listService.getProducts().subscribe(prod=>this.products = prod);
   }
 
 }

@@ -1,3 +1,6 @@
+############  INSTALLAZIONE JSON-SERVER
+npm run server
+
 rotte diverse e protette guard rotta admin ruolo admin
 token in chiaro poi in cifrato
 cokie  local storage per url
