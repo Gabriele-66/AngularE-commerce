@@ -21,7 +21,9 @@ export class AdminPageComponent implements OnInit {
 
   edit(prod: Product) {
     this.listService.edit1(prod);
-    this.listService.getProducts().subscribe((prod) => (this.products = prod));
+    this.listService.getProducts().subscribe((prod) => (
+      this.products = prod
+    ));
   }
 
   delete(prod: Product) {

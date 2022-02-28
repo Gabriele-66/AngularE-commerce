@@ -16,7 +16,9 @@ export class UserPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listService.getProducts().subscribe(prod=>this.products = prod);
+    this.listService.getProducts().subscribe(prod =>
+      this.products = prod
+    );
   }
 
 }

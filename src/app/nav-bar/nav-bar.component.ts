@@ -47,7 +47,7 @@ export class NavBarComponent implements OnInit {
       this.items.splice(1, 0, {
         label: 'Add',
         icon: 'pi pi-fw pi-calendar-plus',
-        command: () => this.listService.addProd(),
+        command: () => this.listService.addProd1(),
       });
     }
   }
