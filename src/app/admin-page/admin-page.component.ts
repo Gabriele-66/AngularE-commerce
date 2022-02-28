@@ -7,18 +7,16 @@ import { Product } from '../model/product';
   templateUrl: './admin-page.component.html',
   styleUrls: ['./admin-page.component.css'],
 })
-
 export class AdminPageComponent implements OnInit {
-
   public products: Product[] = [];
   public currentRoute!: string;
-  newProd: Product = {};
 
   constructor(private listService: ListService) {
     this.products = this.listService.getUpdateProducts();
   }
 
   ngOnInit() {
+    // this.listService.getProducts();
     this.products = this.listService.getUpdateProducts();
   }
 

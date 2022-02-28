@@ -3,24 +3,6 @@ token in chiaro poi in cifrato
 cokie  local storage per url
 guardia
 
-
-fixato barra di rierca quadratino bianco
-ripulito generazione casuale listservice
-ripulito rotta per nav bar e chiamata direttamente negli html interessati
-file list diviso in admin interessato e user interessato
-ripulito app module da import non usati
-eliminato component list
-spostato tutte le azioni della lista nel suo specifico servizio
-aggiungi elemento da pulsante nella navbar
-
-
-unico bug:
-la chiamata al file viene eseguita solo unavolta cosi che le modifiche crud siano le stesse per tute le varie pagine
-MA
-iptetico bindig automatico di tutti le nuove card aggiunte
-aggiornamento array quando viene premuto un tasto su admin
-
-
 prima
 nel servizio
 

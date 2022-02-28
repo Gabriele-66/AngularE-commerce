@@ -5,7 +5,6 @@ import { filter } from 'rxjs';
 import { MenuItem } from 'primeng/api';
 
 import { ListService } from '../services/list.service';
-import { AdminPageComponent } from '../admin-page/admin-page.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,7 +16,7 @@ export class NavBarComponent implements OnInit {
   currentRoute!: string;
   resultSearch?: any[] = [];
 
-  constructor(private router: Router, private listService: ListService, private adminPage:AdminPageComponent) {
+  constructor(private router: Router, private listService: ListService) {
     router.events
       .pipe(filter((e: Event): e is RouterEvent => e instanceof RouterEvent))
       .subscribe((e: RouterEvent) => {
@@ -48,7 +47,7 @@ export class NavBarComponent implements OnInit {
       this.items.splice(1, 0, {
         label: 'Add',
         icon: 'pi pi-fw pi-calendar-plus',
-        command: () => (this.adminPage.products = this.listService.addProd()),
+        command: () => this.listService.addProd(),
       });
     }
   }

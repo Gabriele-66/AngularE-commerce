@@ -12,23 +12,35 @@ export class ListService {
   public products: Product[] = [];
   private resultSearch: any[] = [];
   private productsName: any[] = [];
-  private newProd: Product = {};
 
   constructor(private http: HttpClient) {}
 
   getProducts() {
-    return this.http
+     return this.http
       .get<any>(this.URL)
       .toPromise()
       .then((res) => <Product[]>res.data)
       .then((data) => {
         // return data;
         this.products = data;
+
         this.products.forEach((prod) => (prod.editable = 'edit'));
+        this.products.sort(function (a, b) {
+          if (a.id != undefined && b.id != undefined) {
+            if (a.id < b.id) {
+              return 1;
+            }
+            if (a.id > b.id) {
+              return -1;
+            }
+          }
+            return 0;
+        });
       });
   }
 
   getUpdateProducts() {
+
     return this.products;
   }
 
@@ -73,20 +85,15 @@ export class ListService {
   }
 
   addProd() {
-    this.newProd.name = '';
-    this.newProd.description = '';
-    this.newProd.price = 0;
-    this.newProd.quantity = 0;
-    this.newProd.inventoryStatus = '';
-    this.newProd.editable = 'confirm';
-    this.newProd.id = '';
-    this.newProd.code = '';
-
-    //console.log(this.newProd);
-    console.log(this.products.length);
-    this.products.splice(0, 0, this.newProd);
-    console.log(this.products.length);
-    //console.log(this.products);
+    var newProd = <Product>{};
+    if (this.products[0] && this.products[0].id) {
+      newProd.id = (parseInt(this.products[0].id) + 1).toString();
+    }
+    else {
+      newProd.id = '0';
+    }
+    newProd.editable = 'confirm';
+    this.products.splice(0, 0, newProd);
     return this.products;
   }
 }
