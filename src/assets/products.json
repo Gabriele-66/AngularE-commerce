@@ -1,45 +1,6 @@
 {
   "data": [
     {
-      "id": "1001",
-      "code": "nvklal433",
-      "name": "Black Watch",
-      "description": "Product Description",
-      "image": "black-watch.jpg",
-      "price": 72,
-      "category": "Accessories",
-      "quantity": 61,
-      "inventoryStatus": "INSTOCK",
-      "rating": 4,
-      "editable": "edit"
-    },
-    {
-      "id": "1002",
-      "code": "zz21cz3c1",
-      "name": "Blue Band",
-      "description": "Product Description",
-      "image": "blue-band.jpg",
-      "price": 79,
-      "category": "Fitness",
-      "quantity": 2,
-      "inventoryStatus": "LOWSTOCK",
-      "rating": 3,
-      "editable": "edit"
-    },
-    {
-      "id": "1003",
-      "code": "244wgerg2",
-      "name": "Blue T-Shirt",
-      "description": "Product Description",
-      "image": "blue-t-shirt.jpg",
-      "price": 29,
-      "category": "Clothing",
-      "quantity": 25,
-      "inventoryStatus": "INSTOCK",
-      "rating": 5,
-      "editable": "edit"
-    },
-    {
       "id": "1004",
       "code": "h456wer53",
       "name": "Bracelet",
@@ -363,29 +324,6 @@
       "inventoryStatus": "INSTOCK",
       "rating": 5,
       "editable": "edit"
-    },
-    {
-      "id": "1029",
-      "code": "gwuby345v",
-      "name": "Yoga Set",
-      "description": "Product Description",
-      "image": "yoga-set.jpg",
-      "price": 20,
-      "category": "Fitness",
-      "quantity": 25,
-      "inventoryStatus": "INSTOCK",
-      "rating": 8,
-      "editable": "edit"
-    },
-    {
-      "code": "",
-      "name": "",
-      "description": "",
-      "price": 20,
-      "category": "",
-      "quantity": 0,
-      "editable": "confirm",
-      "id": "QDEUmBv"
     }
   ]
 }

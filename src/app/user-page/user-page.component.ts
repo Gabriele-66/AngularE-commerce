@@ -9,16 +9,14 @@ import { ListService } from '../services/list.service';
   styleUrls: ['./user-page.component.css'],
 })
 export class UserPageComponent implements OnInit {
-
   public products: Product[] = [];
 
-  constructor(private listService: ListService) {
-  }
+  constructor(private listService: ListService) {}
 
   ngOnInit() {
-    this.listService.getProducts().subscribe(prod =>
-      this.products = prod
+    this.listService.getProducts().subscribe(
+      (prod) => this.products = prod,
+      (_) => alert('GET USER ERROR')
     );
   }
-
 }

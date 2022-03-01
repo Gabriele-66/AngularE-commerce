@@ -14,28 +14,43 @@ export class AdminPageComponent implements OnInit {
   constructor(private listService: ListService) {}
 
   ngOnInit() {
-    this.listService.getProducts().subscribe((prod) => (
-        this.products = prod
-      ));
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.listService.getProducts().subscribe(
+      (prod) => (this.products = prod),
+      (_) => alert('GET ADMIN ERROR')
+    );
   }
 
   edit(prod: Product) {
-    this.listService.edit1(prod);
-    this.listService.getProducts().subscribe((prod) => (
-      this.products = prod
-    ));
+    console.log(prod.editable)
+    //this.listService.edit1(prod);
+    //this.getProducts();
   }
 
   delete(prod: Product) {
-    this.listService.delete(prod.id).subscribe((data) => (
-      this.listService.getProducts().subscribe((prod) => (
-        this.products = prod
-      ), err => {
-        alert('qeffqqe');
-      })
-    ),er => {
-      alert('wwefwfw');
-    });
-
+    this.listService.delete(prod.id).subscribe(
+      (_) => this.getProducts(),
+      (_) => alert('DELTE ERROR')
+    );
   }
 }
+
+
+  /*
+  delete(prod: Product) {
+    this.listService.delete(prod.id).subscribe(
+      (data) =>
+        this.listService.getProducts().subscribe(
+          (prod) => (this.products = prod),
+          (err) => {
+            alert('qeffqqe');
+          }
+        ),
+      (er) => {
+        alert('wwefwfw');
+      }
+    );
+  }*/
