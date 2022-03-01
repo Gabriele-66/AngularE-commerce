@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Event, RouterEvent, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { MenuItem } from 'primeng/api';
 
@@ -13,17 +12,10 @@ import { ListService } from '../services/list.service';
 })
 export class NavBarComponent implements OnInit {
   items!: MenuItem[];
-  currentRoute!: string;
   resultSearch?: any[] = [];
   productsName: any[] = [];
 
-  constructor(private router: Router, private listService: ListService) {
-    router.events
-      .pipe(filter((e: Event): e is RouterEvent => e instanceof RouterEvent))
-      .subscribe((e: RouterEvent) => {
-        this.currentRoute = e.url;
-      });
-  }
+  constructor(private router: Router, private listService: ListService) {}
 
   ngOnInit() {
     this.items = [
@@ -35,6 +27,11 @@ export class NavBarComponent implements OnInit {
             label: 'Info',
             icon: 'pi pi-fw pi-users',
           },
+          {
+            label: 'User Page',
+            icon: 'pi pi-fw pi-users',
+            command: () => this.router.navigate(['user']),
+          },
         ],
       },
       {
@@ -43,14 +40,6 @@ export class NavBarComponent implements OnInit {
         command: () => this.router.navigate(['login']),
       },
     ];
-
-    if (String(this.currentRoute) == '/admin') {
-      this.items.splice(1, 0, {
-        label: 'Add',
-        icon: 'pi pi-fw pi-calendar-plus',
-        command: () => this.listService.addProd(),
-      });
-    }
   }
 
   search(textBar: string) {

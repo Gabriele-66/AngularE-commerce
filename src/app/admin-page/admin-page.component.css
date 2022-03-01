@@ -1,26 +1,28 @@
-
 .product-name {
   font-size: 1.5rem;
   font-weight: 700;
+  
 }
 
 .product-description {
   margin: 0 0 1rem 0;
+  text-align: center;
 }
 
 .product-name-icon {
   vertical-align: middle;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .product-quantity,
 .product-price {
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   align-self: flex-end;
+  width: 100px;
+  text-align: center;
 }
-
 
 .product-grid-item {
   border: 1px solid #dee2e6;
@@ -33,15 +35,31 @@
   justify-content: space-between;
 }
 
-
 .product-grid-item-content {
   text-align: center;
 }
 
-
 .card {
   padding: 2rem;
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   margin-bottom: 2rem;
+}
+
+.myButton {
+  background-color: #d8ee74;
+  color: rgb(255, 0, 0);
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
+  position: fixed;
+  bottom: 50px;
+  right: 25px;
+  z-index: 2;
+  font-size: 4rem;
+}
+
+.myButton:hover{
+  cursor: pointer;
 }
