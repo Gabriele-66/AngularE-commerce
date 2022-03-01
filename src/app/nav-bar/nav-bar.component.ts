@@ -15,6 +15,7 @@ export class NavBarComponent implements OnInit {
   items!: MenuItem[];
   currentRoute!: string;
   resultSearch?: any[] = [];
+  productsName: any[] = [];
 
   constructor(private router: Router, private listService: ListService) {
     router.events
@@ -47,12 +48,35 @@ export class NavBarComponent implements OnInit {
       this.items.splice(1, 0, {
         label: 'Add',
         icon: 'pi pi-fw pi-calendar-plus',
-        command: () => this.listService.addProd1(),
+        command: () => this.listService.addProd(),
       });
     }
   }
 
   search(textBar: string) {
-    this.resultSearch = this.listService.search(textBar);
+    if (textBar.length) {
+      this.listService.getProducts().subscribe(
+        (prod) => {
+          console.log(prod);
+          this.productsName = [];
+          this.resultSearch = [];
+          prod.forEach((product) =>
+            this.productsName.push(product.name?.toLowerCase())
+          );
+
+          for (let i = 0; i < this.productsName.length; i++) {
+            if (this.productsName[i].includes(textBar)) {
+              this.resultSearch.push(this.productsName[i]);
+            }
+          }
+          console.log(this.resultSearch);
+        },
+        () => alert('GET SEARCH ERROR')
+      );
+      console.log(textBar.length);
+    } else {
+      this.productsName = [];
+      this.resultSearch = [];
+    }
   }
 }

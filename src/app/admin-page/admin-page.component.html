@@ -1,4 +1,7 @@
 <app-nav-bar></app-nav-bar>
+
+<p-button (onClick)="add()"><i class="pi pi-fw pi-calendar-plus" ></i>Add</p-button>
+
 <p-dataView [value]="products">
   <ng-template let-product pTemplate="listItem">
     <div class="row">

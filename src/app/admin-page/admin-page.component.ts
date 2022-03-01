@@ -9,13 +9,12 @@ import { Product } from '../model/product';
 })
 export class AdminPageComponent implements OnInit {
   public products: Product[] = [];
-  public currentRoute!: string;
 
-  constructor(private listService: ListService) {}
-
-  ngOnInit() {
+  constructor(private listService: ListService) {
     this.getProducts();
   }
+
+  ngOnInit() {}
 
   getProducts() {
     this.listService.getProducts().subscribe(
@@ -25,8 +24,9 @@ export class AdminPageComponent implements OnInit {
   }
 
   edit(prod: Product) {
-    this.listService.edit(prod);
-    this.getProducts();
+    this.listService.edit(prod)
+      ?.then(() => this.getProducts())
+      .catch((error) => console.log('error', error));
   }
 
   delete(prod: Product) {
@@ -35,10 +35,15 @@ export class AdminPageComponent implements OnInit {
       () => alert('DELTE ERROR')
     );
   }
+
+  add() {
+    this.listService.addProd()
+      .then(()=>this.getProducts())
+      .catch((error) => console.log('error', error));
+  }
 }
 
-
-  /*
+/*
   delete(prod: Product) {
     this.listService.delete(prod.id).subscribe(
       (data) =>

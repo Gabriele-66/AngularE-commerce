@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { Product } from '../model/product';
 import { Observable } from 'rxjs';
@@ -10,11 +10,7 @@ import { Observable } from 'rxjs';
 export class ListService {
   private myUrl = 'http://localhost:3000/data';
 
-  public products: Product[] = [];
-  private resultSearch: any[] = [];
-  private productsName: any[] = [];
-
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.myUrl}`);
@@ -25,83 +21,87 @@ export class ListService {
   }
 
   edit(prod?: Product) {
-    var myHeaders = new Headers();
+    let myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
     if (prod?.editable == 'edit') {
-      return fetch(`${this.myUrl}/${prod?.id}`, {
-        method: 'PATCH',
-        headers: myHeaders,
-        body: JSON.stringify({
-          editable: 'confirm',
-        }),
-        redirect: 'follow',
-      })
-        .then((result) => console.log(result.text()))
-        .catch((error) => console.log('error', error));
+      return (
+        fetch(`${this.myUrl}/${prod?.id}`, {
+          method: 'PATCH',
+          headers: myHeaders,
+          body: JSON.stringify({
+            editable: 'confirm',
+          }),
+          redirect: 'follow',
+        })
+          //.then((result) => console.log(result.text()))
+          .catch((error) => console.log('error', error))
+      );
     } else if (prod?.editable == 'confirm') {
-      /*  return this.http.patch(`${this.myUrl}/${prod?.id}/`, {
-        editable: 'edit',
-      });
+      /*    return this.http.patch(`${this.myUrl}/${prod?.id}/`, {
+            editable: 'edit',
+          });
       */
-      return fetch(`${this.myUrl}/${prod?.id}`, {
-        method: 'PATCH',
-        headers: myHeaders,
-        body: JSON.stringify({
-          editable: 'edit',
-        }),
-        redirect: 'follow',
-      })
-        .then((result) => console.log(result.text()))
-        .catch((error) => console.log('error', error));
+      return (
+        fetch(`${this.myUrl}/${prod?.id}`, {
+          method: 'PATCH',
+          headers: myHeaders,
+          body: JSON.stringify({
+            editable: 'edit',
+            code: `${prod.code}`,
+            name: `${prod.name}`,
+            description: `${prod.description}`,
+            price: `${prod.price}`,
+            quantity: `${prod.quantity}`,
+            inventoryStatus: `${prod.inventoryStatus}`,
+          }),
+          redirect: 'follow',
+        })
+          //.then((result) => console.log(result.text()))
+          .catch((error) => console.log('error', error))
+      );
     }
     return;
   }
 
   addProd() {
-    var newProd = <Product>{};
-    if (this.products[0] && this.products[0].id) {
-      newProd.id = (parseInt(this.products[0].id) + 1).toString();
-    } else {
-      newProd.id = '0';
-    }
-    newProd.editable = 'confirm';
-    this.products.splice(0, 0, newProd);
-    return this.products;
-  }
-
-  addProd1() {
     let myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
-    var raw = JSON.stringify({
-      code: '',
-      name: '',
-      description: '',
-      price: 20,
-      category: '',
-      quantity: 0,
-      editable: 'confirm',
-    });
-
-    fetch('http://localhost:3000/data/', {
+    return fetch('http://localhost:3000/data/', {
       method: 'POST',
       headers: myHeaders,
-      body: raw,
+      body: JSON.stringify({
+        code: '',
+        name: '',
+        description: '',
+        price: 15,
+        quantity: 73,
+        inventoryStatus: 'INSTOCK',
+        editable: 'confirm',
+      }),
       redirect: 'follow',
     })
-      .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((result) => console.log(result.text()))
       .catch((error) => console.log('error', error));
   }
+}
 
+/*
+  private products: any[] = [];
+  private resultSearch: any[] = [];
+  private productsName: any[] = [];
   search(textBar: string) {
-    this.getProducts().subscribe((prod) => (this.products = prod));
-    console.log(this.products);
-    this.productsName = [];
-    this.resultSearch = [];
+    this.getProducts().subscribe(
+      (prod) => (this.products = prod),
+      () => alert('GET SEARCH ERROR')
+    );
 
+    console.log(textBar.length);
     if (textBar.length) {
+      console.log(this.products);
+      this.productsName = [];
+      this.resultSearch = [];
       this.products.forEach((product) =>
         this.productsName.push(product.name?.toLowerCase())
       );
@@ -128,7 +128,4 @@ export class ListService {
       .then((result) => console.log(result))
       .catch((error) => console.log('error', error));
   }
-
-
 */
-

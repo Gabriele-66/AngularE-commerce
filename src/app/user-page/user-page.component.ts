@@ -11,12 +11,12 @@ import { ListService } from '../services/list.service';
 export class UserPageComponent implements OnInit {
   public products: Product[] = [];
 
-  constructor(private listService: ListService) {}
-
-  ngOnInit() {
+  constructor(private listService: ListService) {
     this.listService.getProducts().subscribe(
-      (prod) => this.products = prod,
+      (prod) => (this.products = prod),
       () => alert('GET USER ERROR')
     );
   }
+
+  ngOnInit() {}
 }
