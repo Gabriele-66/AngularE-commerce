@@ -20,20 +20,19 @@ export class AdminPageComponent implements OnInit {
   getProducts() {
     this.listService.getProducts().subscribe(
       (prod) => (this.products = prod),
-      (_) => alert('GET ADMIN ERROR')
+      () => alert('GET ADMIN ERROR')
     );
   }
 
   edit(prod: Product) {
-    console.log(prod.editable)
-    //this.listService.edit1(prod);
-    //this.getProducts();
+    this.listService.edit(prod);
+    this.getProducts();
   }
 
   delete(prod: Product) {
     this.listService.delete(prod.id).subscribe(
-      (_) => this.getProducts(),
-      (_) => alert('DELTE ERROR')
+      () => this.getProducts(),
+      () => alert('DELTE ERROR')
     );
   }
 }

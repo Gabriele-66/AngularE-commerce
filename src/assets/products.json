@@ -2,7 +2,7 @@
   "data": [
     {
       "id": "1004",
-      "code": "h456wer53",
+      "code": "hhhh",
       "name": "Bracelet",
       "description": "Product Description",
       "image": "bracelet.jpg",
@@ -11,7 +11,7 @@
       "quantity": 73,
       "inventoryStatus": "INSTOCK",
       "rating": 4,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1005",
@@ -37,7 +37,7 @@
       "quantity": 5,
       "inventoryStatus": "LOWSTOCK",
       "rating": 3,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1007",
@@ -50,7 +50,7 @@
       "quantity": 23,
       "inventoryStatus": "INSTOCK",
       "rating": 5,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1008",
@@ -63,7 +63,7 @@
       "quantity": 2,
       "inventoryStatus": "LOWSTOCK",
       "rating": 4,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1009",
@@ -76,7 +76,7 @@
       "quantity": 63,
       "inventoryStatus": "INSTOCK",
       "rating": 3,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1010",
@@ -89,7 +89,7 @@
       "quantity": 0,
       "inventoryStatus": "OUTOFSTOCK",
       "rating": 4,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1011",
@@ -102,7 +102,7 @@
       "quantity": 23,
       "inventoryStatus": "INSTOCK",
       "rating": 4,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1012",
@@ -115,7 +115,7 @@
       "quantity": 74,
       "inventoryStatus": "INSTOCK",
       "rating": 5,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1013",
@@ -128,7 +128,7 @@
       "quantity": 0,
       "inventoryStatus": "OUTOFSTOCK",
       "rating": 3,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1014",
@@ -141,7 +141,7 @@
       "quantity": 8,
       "inventoryStatus": "LOWSTOCK",
       "rating": 5,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1015",
@@ -154,7 +154,7 @@
       "quantity": 34,
       "inventoryStatus": "INSTOCK",
       "rating": 4,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1016",
@@ -167,7 +167,7 @@
       "quantity": 12,
       "inventoryStatus": "INSTOCK",
       "rating": 3,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1017",
@@ -180,7 +180,7 @@
       "quantity": 42,
       "inventoryStatus": "INSTOCK",
       "rating": 4,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1018",
@@ -271,7 +271,7 @@
       "quantity": 0,
       "inventoryStatus": "INSTOCK",
       "rating": 4,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1025",
@@ -284,7 +284,7 @@
       "quantity": 52,
       "inventoryStatus": "INSTOCK",
       "rating": 4,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1026",
@@ -297,7 +297,7 @@
       "quantity": 3,
       "inventoryStatus": "LOWSTOCK",
       "rating": 3,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1027",
@@ -310,7 +310,7 @@
       "quantity": 35,
       "inventoryStatus": "INSTOCK",
       "rating": 3,
-      "editable": "edit"
+      "editable": "confirm"
     },
     {
       "id": "1028",
