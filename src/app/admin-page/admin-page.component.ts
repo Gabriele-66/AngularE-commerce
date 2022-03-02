@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ListService } from '../services/list.service';
 import { Product } from '../model/product';
 
@@ -9,6 +9,9 @@ import { Product } from '../model/product';
 })
 export class AdminPageComponent implements OnInit {
   public products: Product[] = [];
+
+  @ViewChild('scroll')
+  scroll!: ElementRef;
 
   constructor(private listService: ListService) {
     this.getProducts();
@@ -24,7 +27,8 @@ export class AdminPageComponent implements OnInit {
   }
 
   edit(prod: Product) {
-    this.listService.edit(prod)
+    this.listService
+      .edit(prod)
       ?.then(() => this.getProducts())
       .catch((error) => console.log('error', error));
   }
@@ -37,24 +41,18 @@ export class AdminPageComponent implements OnInit {
   }
 
   add() {
-    this.listService.addProd()
-      .then(()=>this.getProducts())
+    this.listService
+      .addProd()
+      .then(() => this.getProducts())
       .catch((error) => console.log('error', error));
   }
-}
 
-/*
-  delete(prod: Product) {
-    this.listService.delete(prod.id).subscribe(
-      (data) =>
-        this.listService.getProducts().subscribe(
-          (prod) => (this.products = prod),
-          (err) => {
-            alert('qeffqqe');
-          }
-        ),
-      (er) => {
-        alert('wwefwfw');
-      }
-    );
-  }*/
+  btnUp() {
+    this.scroll.nativeElement.scrollTop = 0;
+  }
+
+  btnDown() {
+    this.scroll.nativeElement.scrollTop =
+      this.scroll.nativeElement.scrollHeight;
+  }
+}

@@ -1,61 +1,67 @@
 <app-nav-bar></app-nav-bar>
 
-<p-button (onClick)="add()"><i class="pi pi-fw pi-calendar-plus myButton" ></i></p-button>
+<div #scroll class="scroll-ele" >
 
-<p-dataView [value]="products">
-  <ng-template let-product pTemplate="listItem">
-    <div class="row">
-      <div class="md:col-4 col-12">
-        <div class="product-grid-item card">
-          <form #myForm="ngForm">
-            <div class="product-grid-item-top">
-              <div>
-                <i class="pi pi-tag product-name-icon"></i>
+  <button (click)="add()" class="btnAdd pi pi-fw pi-calendar-plus" ></button>
+
+  <button (click)="btnDown()" class="btnDown pi pi-fw pi-arrow-down"></button>
+  <button (click)="btnUp()" class="btnUp pi pi-fw pi-arrow-up"></button>
+
+  <p-dataView [value]="products">
+    <ng-template let-product pTemplate="listItem">
+      <div class="row">
+        <div class="md:col-4 col-12">
+          <div class="product-grid-item card">
+            <form #myForm="ngForm">
+              <div class="product-grid-item-top">
+                <div>
+                  <i class="pi pi-tag product-name-icon"></i>
+                  <input
+                    [disabled]="product.editable == 'edit'"
+                    type="text"
+                    class="product-name"
+                    [(ngModel)]="product.name"
+                    name="name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="product-grid-item-content">
                 <input
                   [disabled]="product.editable == 'edit'"
                   type="text"
-                  class="product-name"
-                  [(ngModel)]="product.name"
-                  name="name"
+                  class="product-description"
+                  [(ngModel)]="product.description"
+                  name="description"
                   required
                 />
               </div>
-            </div>
-            <div class="product-grid-item-content">
-              <input
-                [disabled]="product.editable == 'edit'"
-                type="text"
-                class="product-description"
-                [(ngModel)]="product.description"
-                name="description"
-                required
-              />
-            </div>
-            <div class="product-grid-item-bottom">
-              <input
-                [disabled]="product.editable == 'edit'"
-                type="text"
-                class="product-price"
-                [(ngModel)]="product.price"
-                name="price"
-                required
-              />
-              <input
-                [disabled]="product.editable == 'edit'"
-                type="text"
-                class="product-quantity"
-                [(ngModel)]="product.quantity"
-                name="quantity"
-                required
-              />
-            </div>
-            <button type="button" (click)="edit(product)">
-              {{ product.editable }}
-            </button>
-            <button type="button" (click)="delete(product)">Remove</button>
-          </form>
+              <div class="product-grid-item-bottom">
+                <input
+                  [disabled]="product.editable == 'edit'"
+                  type="text"
+                  class="product-price"
+                  [(ngModel)]="product.price"
+                  name="price"
+                  required
+                />
+                <input
+                  [disabled]="product.editable == 'edit'"
+                  type="text"
+                  class="product-quantity"
+                  [(ngModel)]="product.quantity"
+                  name="quantity"
+                  required
+                />
+              </div>
+              <button type="button" (click)="edit(product)">
+                {{ product.editable }}
+              </button>
+              <button type="button" (click)="delete(product)">Remove</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </ng-template>
-</p-dataView>
+    </ng-template>
+  </p-dataView>
+</div>
