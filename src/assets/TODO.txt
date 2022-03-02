@@ -1,14 +1,16 @@
 ############  INSTALLAZIONE JSON-SERVER
-npm run server
+npm run products
+ng serve --open
 
-rotte diverse e protette guard rotta admin ruolo admin
-token in chiaro poi in cifrato
-cokie  local storage per url
-guardia
+json-server auth per guardie e token
 
-sistemare tutti i css
-login con json server
 carrello
+operazioni crud carrello
+stessa lista di visualzzione catalogo per carrello con informazioni nella chiamata
+token nel local storage
+
+pagina del prodotto
+
 
 ####################################################################################################################### LIST SERVICE
 /*
