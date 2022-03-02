@@ -1,8 +1,25 @@
-<form [formGroup]="userForm">
-  <input type="radio" value="admin" formControlName="userType"><span>Admin</span>
-  <input type="radio" value="user" formControlName="userType"><span>User</span>
+<form [formGroup]="userForm" class="container">
+
   <div>
-    <button type="button" [disabled]="userForm.invalid" (click)="next()">Conferma</button>
-    <button type="button" (click)="goBack()">Annulla</button>
+    <input
+    id="admin"
+    type="radio"
+    value="admin"
+    formControlName="userType"
+  /><label for="admin">Admin</label>
+  </div>
+
+  <div>
+    <input id="user" type="radio" value="user" formControlName="userType" /><label
+    for="user"
+    >User</label
+  >
+  </div>
+
+  <div>
+    <button class="btnGo" type="button" [disabled]="userForm.invalid" (click)="next()">
+      Continue
+    </button>
+    <button class="btnGo" type="button" (click)="goBack()">Back</button>
   </div>
 </form>

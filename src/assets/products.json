@@ -376,6 +376,16 @@
       "inventoryStatus": "INSTOCK",
       "rating": 8,
       "editable": "edit"
+    },
+    {
+      "code": "",
+      "name": "",
+      "description": "",
+      "price": 15,
+      "quantity": 73,
+      "inventoryStatus": "INSTOCK",
+      "editable": "confirm",
+      "id": "w-EWfuD"
     }
   ]
 }
