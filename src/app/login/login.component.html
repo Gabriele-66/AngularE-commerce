@@ -1,18 +1,27 @@
-<h2>{{'reactive form'|uppercase}}</h2>
-
-<form [formGroup]="myForm">
-
-  <!-- NAME -->
+<form id="login-form" class="container" [formGroup]="myForm">
   <div>
-    <label for="username">Username: </label>
-    <input type="text" id="username" formControlName="username">
-    <span [hidden]="myForm.controls.username.valid || myForm.controls.username.pristine">CAMPO OBBLOGATORIO</span>
+    <input
+      type="text"
+      id="username"
+      formControlName="username"
+      placeholder="Username"
+      [ngClass]="{ error: submitted && myForm.controls.username.errors }"
+    />
   </div>
-
   <div>
-    <label for="password">Password: </label>
-    <input type="password" id="password" formControlName="password">
-    <span [hidden]="myForm.controls.password.valid || myForm.controls.password.pristine">CAMPO OBBLOGATORIO</span>
+    <input
+      type="password"
+      id="password"
+      placeholder="Password"
+      formControlName="password"
+    />
   </div>
-  <button type="button" [disabled]="myForm.invalid" (click)="reactForm()">Invia</button>
+  <button
+    class="loginbtn"
+    type="submit"
+    [disabled]="myForm.invalid"
+    (click)="reactForm()"
+  >
+    Login
+  </button>
 </form>
