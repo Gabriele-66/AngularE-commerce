@@ -1,8 +1,7 @@
 <app-nav-bar></app-nav-bar>
 
-<div #scroll class="scroll-ele" >
-
-  <button (click)="add()" class="btnAdd pi pi-fw pi-calendar-plus" ></button>
+<div #scroll class="scroll-ele">
+  <button (click)="add()" class="btnAdd pi pi-fw pi-calendar-plus"></button>
 
   <button (click)="btnDown()" class="btnDown pi pi-fw pi-arrow-down"></button>
   <button (click)="btnUp()" class="btnUp pi pi-fw pi-arrow-up"></button>
@@ -11,7 +10,10 @@
     <ng-template let-product pTemplate="listItem">
       <div class="row">
         <div class="md:col-4 col-12">
-          <div class="product-grid-item card">
+          <div
+            class="product-grid-item card"
+            style="margin-bottom: 0px; margin-right: 2px"
+          >
             <form #myForm="ngForm">
               <div class="product-grid-item-top">
                 <div>
@@ -37,14 +39,18 @@
                 />
               </div>
               <div class="product-grid-item-bottom">
-                <input
-                  [disabled]="product.editable == 'edit'"
-                  type="text"
-                  class="product-price"
-                  [(ngModel)]="product.price"
-                  name="price"
-                  required
-                />
+                <div>
+                  <i class="pi pi-dollar"></i>
+                  <input
+                    [disabled]="product.editable == 'edit'"
+                    type="text"
+                    class="product-price"
+                    [(ngModel)]="product.price"
+                    name="price"
+                    required
+                  />
+                </div>
+
                 <input
                   [disabled]="product.editable == 'edit'"
                   type="text"
@@ -54,10 +60,13 @@
                   required
                 />
               </div>
-              <button type="button" (click)="edit(product)">
+
+              <button class="btnCrud" type="button" (click)="edit(product)">
                 {{ product.editable }}
               </button>
-              <button type="button" (click)="delete(product)">Remove</button>
+              <button class="btnCrud" type="button" (click)="delete(product)">
+                Remove
+              </button>
             </form>
           </div>
         </div>

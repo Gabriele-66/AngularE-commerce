@@ -1,7 +1,6 @@
 .product-name {
   font-size: 1.5rem;
   font-weight: 700;
-
 }
 
 .product-description {
@@ -47,71 +46,70 @@
   margin-bottom: 2rem;
 }
 
-.btnUp{
-  background-color: #d8ee74;
-  color: rgb(255, 0, 0);
-  height: 80px;
-  width: 80px;
-  border-radius: 100%;
-  position: fixed;
-  bottom: 250px;
-  right: 25px;
-  z-index: 2;
-  font-size: 4rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+.btnUp,
+.btnDown,
+.btnAdd,
+.btnCrud {
+  background: #f16304;
+  color: white;
   cursor: pointer;
 }
 
+.btnCrud {
+  border-radius: 5px;
+  border: 1.5px solid;
+  width: 25ch;
+  height: 5ch;
+}
+
+.btnUp,
+.btnDown,
 .btnAdd {
-  background-color: #d8ee74;
-  color: rgb(255, 0, 0);
   height: 80px;
   width: 80px;
   border-radius: 100%;
   position: fixed;
-  bottom: 150px;
   right: 25px;
   z-index: 2;
   font-size: 4rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+    box-shadow 0.2s;
 }
 
-.btnDown{
-  background-color: #d8ee74;
-  color: rgb(255, 0, 0);
-  height: 80px;
-  width: 80px;
-  border-radius: 100%;
-  position: fixed;
+.btnDown {
   bottom: 50px;
-  right: 25px;
-  z-index: 2;
-  font-size: 4rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-  cursor: pointer;
+}
+.btnAdd {
+  bottom: 150px;
+}
+.btnUp {
+  bottom: 250px;
 }
 
-.btnUp:hover, .btnDown:hover, .btnAdd:hover{
+.btnCrud:hover,
+.btnUp:hover,
+.btnDown:hover {
   border-color: #91a3fb;
   background: #91a3fb;
   color: #1c2127;
 }
 
-.btnAdd:enabled:active:hover {
-    background: #7d92fb;
-    color: #1c2127;
-    border-color: #7d92fb;
+.btnAdd:enabled:active,
+.btnAdd:hover {
+  background: #7d92fb;
+  color: #1c2127;
+  border-color: #7d92fb;
 }
 
 .btnAdd:focus {
-    box-shadow: 0 0 0 2px #1c2127, 0 0 0 4px rgb(165 180 252 / 70%), 0 1px 2px 0 rgb(0 0 0 / 0%);
-    background: #7d92fb;
-    color: #1c2127;
-    border-color: #7d92fb;
+  box-shadow: 0 0 0 2px #1c2127, 0 0 0 4px rgb(165 180 252 / 70%),
+    0 1px 2px 0 rgb(0 0 0 / 0%);
+  background: #7d92fb;
+  color: #1c2127;
+  border-color: #7d92fb;
 }
 
-.scroll-ele{
+.scroll-ele {
   height: 800px;
   overflow-y: scroll;
 }
