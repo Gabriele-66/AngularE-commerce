@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/product';
 import { ListService } from '../services/list.service';
 
-import { Table } from 'primeng/table';
-
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.component.html',
@@ -14,23 +12,19 @@ export class UserPageComponent implements OnInit {
   public products: Product[] = [];
   first = 0;
   rows = 5;
-  pricesValues: number[] = [];
+  selectedProducts?: Product[];
 
   constructor(private listService: ListService) {
     this.getProducts();
+    this.isRowSelectable = this.isRowSelectable.bind(this);
   }
 
   ngOnInit() {}
 
   getProducts() {
-    let priceNum:number[] = [];
     this.listService.getProducts().subscribe(
       (prod) => {
         this.products = prod;
-        priceNum = [];
-        prod.forEach((product) => priceNum.push(Number(product.price)));
-        this.pricesValues.push(Math.min.apply(null, priceNum));
-        this.pricesValues.push(Math.max.apply(null, priceNum));
       },
       () => alert('GET USER ERROR')
     );
@@ -38,12 +32,12 @@ export class UserPageComponent implements OnInit {
 
   next() {
     this.getProducts();
-    this.first += this.rows;
+    this.first = this.first + this.rows;
   }
 
   prev() {
     this.getProducts();
-    this.first -= this.rows;
+    this.first = this.first - this.rows;
   }
 
   reset() {
@@ -61,8 +55,16 @@ export class UserPageComponent implements OnInit {
     return this.products ? this.first === 0 : true;
   }
 
-  clear(table: Table) {
-    table.clear();
+  isRowSelectable(prod: Product) {
+    if (Number(prod.quantity) > 0) {
+      return false;
+    }
+    return true;
+    //return false ? Number(prod.quantity)>0 : true;
   }
-
+  stampa() {
+    console.log(this.first)
+    console.log(this.rows)
+    console.log(this.selectedProducts)
+  }
 }
