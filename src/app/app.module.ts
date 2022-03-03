@@ -23,6 +23,12 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { CardModule } from 'primeng/card';
 import { MenubarModule } from 'primeng/menubar';
+import { ToastModule } from 'primeng/toast';
+import { CalendarModule } from 'primeng/calendar';
+import { SliderModule } from 'primeng/slider';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ContextMenuModule } from 'primeng/contextmenu';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 
 @NgModule({
@@ -50,6 +56,12 @@ import { MenubarModule } from 'primeng/menubar';
     MenubarModule,
     BrowserAnimationsModule,
     FormsModule,
+    ToastModule,
+    CalendarModule,
+    SliderModule,
+    MultiSelectModule,
+    ContextMenuModule,
+    ProgressBarModule,
   ],
   providers: [ListService],
   bootstrap: [AppComponent],

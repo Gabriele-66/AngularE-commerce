@@ -4,15 +4,12 @@
   [value]="products"
   styleClass="p-datatable-gridlines"
   responsiveLayout="scroll"
-
   [paginator]="true"
   [rows]="rows"
   [showCurrentPageReport]="true"
   [(first)]="first"
   currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
   [rowsPerPageOptions]="[5, 10, 25, 50]"
-
-
 >
   <ng-template pTemplate="caption">
     <div class="mb-3" class="flex align-items-center justify-content-between">
@@ -40,10 +37,35 @@
   </ng-template>
   <ng-template pTemplate="header">
     <tr>
-      <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
-      <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
-      <th pSortableColumn="quantity">Quantity <p-sortIcon field="quantity"></p-sortIcon></th>
-      <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon></th>
+      <th class="myBk" pSortableColumn="name">
+        Name <p-sortIcon field="name"></p-sortIcon>
+      </th>
+      <th class="myBk" pSortableColumn="price">
+        Price <p-sortIcon field="price"></p-sortIcon>
+      </th>
+      <th class="myBk" pSortableColumn="quantity">
+        Quantity <p-sortIcon field="quantity"></p-sortIcon>
+      </th>
+      <th class="myBk" pSortableColumn="description">
+        Description <p-sortIcon field="description"></p-sortIcon>
+      </th>
+    </tr>
+    <!-- ###############################################    FILTRI -->
+    <tr>
+      <th>
+        <p-columnFilter type="text" field="name"></p-columnFilter>
+      </th>
+      <th class="flex justify-content-center align-items-center">
+          Filter by:
+          <p-columnFilter type="numeric" field="price" display="menu" currency="USD"></p-columnFilter>
+      </th>
+      <th class="flex justify-content-center align-items-center">
+          Filter by:
+          <p-columnFilter type="numeric" field="quantity" display="menu" ></p-columnFilter>
+      </th>
+      <th>
+        <p-columnFilter type="text" field="description"></p-columnFilter>
+      </th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-product>
@@ -60,5 +82,4 @@
       In total there are {{ products ? products.length : 0 }} products.
     </div>
   </ng-template>
-
 </p-table>

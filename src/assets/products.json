@@ -386,6 +386,16 @@
       "inventoryStatus": "INSTOCK",
       "editable": "confirm",
       "id": "U9e5-_I"
+    },
+    {
+      "code": "",
+      "name": "",
+      "description": "",
+      "price": "",
+      "quantity": "73",
+      "inventoryStatus": "INSTOCK",
+      "editable": "edit",
+      "id": "0ppPGzW"
     }
   ]
 }
