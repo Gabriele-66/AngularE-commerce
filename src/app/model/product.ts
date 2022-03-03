@@ -5,6 +5,5 @@ export interface Product{
     description?:string;
     price?:number;
     quantity?: number;
-    inventoryStatus?: string;
     editable?: string;
 }

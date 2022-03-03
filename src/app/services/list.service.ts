@@ -53,7 +53,6 @@ export class ListService {
             description: `${prod.description}`,
             price: `${prod.price}`,
             quantity: `${prod.quantity}`,
-            inventoryStatus: `${prod.inventoryStatus}`,
           }),
           redirect: 'follow',
         })
