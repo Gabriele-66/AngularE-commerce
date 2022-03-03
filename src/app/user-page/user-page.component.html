@@ -81,7 +81,6 @@
     <tr>
       <td>
         <p-tableCheckbox [value]="product" [disabled]="isRowSelectable(product)"></p-tableCheckbox>
-         <p-button (click)="stampa()"></p-button>
       </td>
       <td>{{ product.name }}</td>
       <td>{{ product.price | currency: "USD" }}</td>

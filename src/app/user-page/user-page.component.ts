@@ -31,28 +31,25 @@ export class UserPageComponent implements OnInit {
   }
 
   next() {
-    this.getProducts();
     this.first = this.first + this.rows;
   }
 
   prev() {
-    this.getProducts();
     this.first = this.first - this.rows;
   }
 
   reset() {
-    this.getProducts();
     this.first = 0;
   }
 
   isLastPage(): boolean {
-    return this.products
-      ? this.first === this.products.length - this.rows
-      : true;
+    if (this.first+this.rows >= this.products.length)
+      return true
+    return false
   }
 
   isFirstPage(): boolean {
-    return this.products ? this.first === 0 : true;
+    return true ? this.first === 0 : false;
   }
 
   isRowSelectable(prod: Product) {
@@ -61,10 +58,5 @@ export class UserPageComponent implements OnInit {
     }
     return true;
     //return false ? Number(prod.quantity)>0 : true;
-  }
-  stampa() {
-    console.log(this.first)
-    console.log(this.rows)
-    console.log(this.selectedProducts)
   }
 }
