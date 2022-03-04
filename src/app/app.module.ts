@@ -29,6 +29,8 @@ import { SliderModule } from 'primeng/slider';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ContextMenuModule } from 'primeng/contextmenu';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { MessagesModule } from 'primeng/messages';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 
 @NgModule({
@@ -62,6 +64,8 @@ import { ProgressBarModule } from 'primeng/progressbar';
     MultiSelectModule,
     ContextMenuModule,
     ProgressBarModule,
+    MessagesModule,
+    ConfirmDialogModule,
   ],
   providers: [ListService],
   bootstrap: [AppComponent],
