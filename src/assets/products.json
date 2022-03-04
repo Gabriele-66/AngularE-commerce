@@ -1,5 +1,4 @@
-{
-  "data": [
+[
     {
       "id": "1000",
       "code": "f230fh0g3",
@@ -389,12 +388,5 @@
       "inventoryStatus": "INSTOCK",
       "rating": 8,
       "editable": "edit"
-    },
-    {
-      "id": "0Li93GK"
-    },
-    {
-      "id": "UvS0jmC"
     }
   ]
-}

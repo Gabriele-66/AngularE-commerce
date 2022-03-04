@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ListService {
-  private myUrl = 'http://localhost:3000/data';
+  private myUrl = '/assets/products.json';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.myUrl}`);
@@ -67,7 +67,7 @@ export class ListService {
     let myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
-    return fetch('http://localhost:3000/data/', {
+    return fetch(`${this.myUrl}`, {
       method: 'POST',
       headers: myHeaders,
       body: JSON.stringify({
