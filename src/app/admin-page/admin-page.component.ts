@@ -2,6 +2,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ListService } from '../services/list.service';
 import { Product } from '../model/product';
 
+import { ConfirmationService } from 'primeng/api';
+
 @Component({
   selector: 'app-admin-page',
   templateUrl: './admin-page.component.html',
@@ -10,10 +12,14 @@ import { Product } from '../model/product';
 export class AdminPageComponent implements OnInit {
   public products: Product[] = [];
 
+
   @ViewChild('scroll')
   scroll!: ElementRef;
 
-  constructor(private listService: ListService) {
+  constructor(
+    private listService: ListService,
+    private confirmationService: ConfirmationService
+  ) {
     this.getProducts();
   }
 
@@ -34,13 +40,20 @@ export class AdminPageComponent implements OnInit {
   }
 
   delete(prod: Product) {
-    this.listService.delete(prod.id).subscribe(
-      () => this.getProducts(),
-      () => alert('DELTE ERROR')
-    );
+    this.confirmationService.confirm({
+      message: 'Are you sure to remove this product?',
+      accept: () => {
+        this.listService.delete(prod.id).subscribe(
+          () => this.getProducts(),
+          () => alert('DELTE ERROR')
+        );
+      },
+    });
   }
 
+  displayAdd: boolean = false;
   add() {
+    this.displayAdd = true;
     this.listService
       .addProd()
       .then(() => this.getProducts())

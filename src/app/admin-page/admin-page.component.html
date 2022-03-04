@@ -1,8 +1,32 @@
 <app-nav-bar></app-nav-bar>
 
-<div #scroll class="scroll-ele">
-  <button (click)="add()" class="btnAdd pi pi-fw pi-calendar-plus"></button>
+<!-- <p-confirmDialog #cd [style]="{width: '50vw'}" [transitionOptions]="'200ms'">
+    <ng-template pTemplate="header" icon="pi pi-exclamation-triangle">
+        <h3>Header Content</h3>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+    </ng-template>
+</p-confirmDialog> -->
 
+<div #scroll class="scroll-ele">
+
+  <p-confirmDialog
+    header="Total item after delete {{ this.products.length -1 }}"
+    icon="pi pi-exclamation-triangle"
+  ></p-confirmDialog>
+  <p-dialog
+    header="Total item: {{ this.products.length }}"
+    [(visible)]="displayAdd"
+    [style]="{ width: '270px' }"
+  >
+    <!-- position="left" -->
+    <!-- <p-dropdown appendTo="body"></p-dropdown> -->
+    Add New Product !
+  </p-dialog>
+
+  <button (click)="add()" class="btnAdd pi pi-fw pi-calendar-plus"></button>
   <button (click)="btnDown()" class="btnDown pi pi-fw pi-arrow-down"></button>
   <button (click)="btnUp()" class="btnUp pi pi-fw pi-arrow-up"></button>
 

@@ -14,6 +14,7 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { ListService } from './services/list.service';
 
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { DataViewModule } from 'primeng/dataview';
 import { ButtonModule } from 'primeng/button';
 import { PanelModule } from 'primeng/panel';
@@ -31,6 +32,8 @@ import { ContextMenuModule } from 'primeng/contextmenu';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { SidebarModule } from 'primeng/sidebar';
 
 
 @NgModule({
@@ -66,8 +69,10 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     ProgressBarModule,
     MessagesModule,
     ConfirmDialogModule,
+    ConfirmPopupModule,
+    SidebarModule,
   ],
-  providers: [ListService],
+  providers: [ListService, ConfirmationService, MessageService],
   bootstrap: [AppComponent],
   schemas: [],
 })
