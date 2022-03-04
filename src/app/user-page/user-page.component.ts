@@ -43,16 +43,19 @@ export class UserPageComponent implements OnInit {
   }
 
   isLastPage(): boolean {
-    if (this.first+this.rows >= this.products.length)
-      return true
-    return false
+    if (this.first + this.rows >= this.products.length) return true;
+    return false;
   }
 
   isFirstPage(): boolean {
     return true ? this.first === 0 : false;
   }
 
-  isRowSelectable(prod: Product) {
+  isRowSelectable(event: { data: any; }) {
+    return !this.isRowQuantity(event.data);
+  }
+
+  isRowQuantity(prod: { quantity: any; }) {
     if (Number(prod.quantity) > 0) {
       return false;
     }
