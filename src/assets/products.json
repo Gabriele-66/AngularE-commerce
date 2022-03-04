@@ -391,24 +391,10 @@
       "editable": "edit"
     },
     {
-      "code": "",
-      "name": "",
-      "description": "",
-      "price": 15,
-      "quantity": 73,
-      "inventoryStatus": "INSTOCK",
-      "editable": "confirm",
-      "id": "zA2zBzb"
+      "id": "0Li93GK"
     },
     {
-      "code": "",
-      "name": "",
-      "description": "",
-      "price": 15,
-      "quantity": 73,
-      "inventoryStatus": "INSTOCK",
-      "editable": "confirm",
-      "id": "AAun6vW"
+      "id": "UvS0jmC"
     }
   ]
 }

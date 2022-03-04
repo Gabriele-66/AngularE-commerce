@@ -11,7 +11,7 @@ import { ConfirmationService } from 'primeng/api';
 })
 export class AdminPageComponent implements OnInit {
   public products: Product[] = [];
-
+  display: boolean = false;
 
   @ViewChild('scroll')
   scroll!: ElementRef;

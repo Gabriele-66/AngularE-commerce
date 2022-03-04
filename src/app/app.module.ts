@@ -34,7 +34,7 @@ import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { SidebarModule } from 'primeng/sidebar';
-
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
   declarations: [
@@ -71,6 +71,7 @@ import { SidebarModule } from 'primeng/sidebar';
     ConfirmDialogModule,
     ConfirmPopupModule,
     SidebarModule,
+    FileUploadModule,
   ],
   providers: [ListService, ConfirmationService, MessageService],
   bootstrap: [AppComponent],

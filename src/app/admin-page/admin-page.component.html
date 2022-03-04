@@ -9,6 +9,19 @@
         <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
     </ng-template>
 </p-confirmDialog> -->
+<p-sidebar [(visible)]="display" position="right">
+    Content
+    <p-fileUpload name="myfile[]" url="http://54.147.129.18/"></p-fileUpload>
+</p-sidebar>
+
+<p-button type="text" (click)="display = true" icon="pi pi-plus" label="Show"></p-button>
+
+
+
+
+
+
+
 
 <div #scroll class="scroll-ele">
 
