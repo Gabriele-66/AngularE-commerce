@@ -49,6 +49,7 @@ export class AdminPageComponent implements OnInit {
         );
       },
     });
+    
   }
 
   displayAdd: boolean = false;
