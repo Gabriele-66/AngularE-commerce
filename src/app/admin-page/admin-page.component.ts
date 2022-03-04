@@ -53,11 +53,11 @@ export class AdminPageComponent implements OnInit {
 
   displayAdd: boolean = false;
   add() {
-    this.displayAdd = true;
     this.listService
       .addProd()
       .then(() => this.getProducts())
       .catch((error) => console.log('error', error));
+    this.displayAdd = true;
   }
 
   btnUp() {
